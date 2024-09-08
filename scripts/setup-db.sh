@@ -12,3 +12,4 @@ echo "Creating Azure roles"
 PGPASSWORD=xxx psql -h "${HOST:-localhost}" -p "$PORT" -U spi_dev -d spi_dev -c 'CREATE ROLE azure_pg_admin; CREATE ROLE azuresu;'
 echo "Importing"
 PGPASSWORD=xxx pg_restore --no-owner -h "${HOST:-localhost}" -p "$PORT" -U spi_dev -d spi_dev < "$IMPORT_FILE"
+PGPASSWORD=xxx psql -h "${HOST:-localhost}" -p "$PORT" -U spi_dev -d spi_dev -c 'VACUUM; ANALYZE;'

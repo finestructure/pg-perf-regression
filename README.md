@@ -9,6 +9,6 @@
 
 ## Run PostgresNIO perf tests
 
-- Run `swift run`
+- Run `swift run` with Xcode 16.0b6
 
 NB: We're specifically _not_ running in release mode, because the performance regression impacts our running of our _test suite_.

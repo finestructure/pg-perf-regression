@@ -1,9 +1,24 @@
+-- QUERY-001
 REFRESH MATERIALIZED VIEW recent_packages;
+
+
+-- QUERY-002
 REFRESH MATERIALIZED VIEW recent_releases;
+
+
+-- QUERY-003
 REFRESH MATERIALIZED VIEW search;
+
+
+-- QUERY-004
 REFRESH MATERIALIZED VIEW stats;
+
+
+-- QUERY-005
 REFRESH MATERIALIZED VIEW weighted_keywords;
 
+
+-- QUERY-006
 select count(*) from (
     select distinct p.url
     from packages p
@@ -13,6 +28,8 @@ select count(*) from (
     and v.latest is not null
 ) t;
 
+
+-- QUERY-007
 select count(*) from (
     select d.updated_at, p.url, file_count, mb_size, v.latest,
         case
@@ -36,6 +53,8 @@ select count(*) from (
     order by d.updated_at desc
 ) t;
 
+
+-- QUERY-008
 select owner, count(*)
 from repositories r
 join packages p on r.package_id = p.id
@@ -46,56 +65,60 @@ group by owner
 order by count(*) desc
 limit 10;
 
+
+-- QUERY-009
 select 'linux' as "platform", count(t.*) as "total", round(count(t.*)*100 / (select count(*) from packages)::decimal, 1) as "fraction" from
 (
-select distinct p.url
-from builds b
-join versions v on b.version_id = v.id
-join packages p on v.package_id = p.id 
-where platform = 'linux'
-and b.status = 'ok'
+    select distinct p.url
+    from builds b
+    join versions v on b.version_id = v.id
+    join packages p on v.package_id = p.id
+    where platform = 'linux'
+    and b.status = 'ok'
 ) t
 union
 select 'macos' as "platform", count(t.*) as "total", round(count(t.*)*100 / (select count(*) from packages)::decimal, 1) as "fraction" from
 (
-select distinct p.url
-from builds b
-join versions v on b.version_id = v.id
-join packages p on v.package_id = p.id 
-where (platform = 'macos-spm' or platform = 'macos-xcodebuild')
-and b.status = 'ok'
+    select distinct p.url
+    from builds b
+    join versions v on b.version_id = v.id
+    join packages p on v.package_id = p.id
+    where (platform = 'macos-spm' or platform = 'macos-xcodebuild')
+    and b.status = 'ok'
 ) t
 union
 select 'ios' as "platform", count(t.*) as "total", round(count(t.*)*100 / (select count(*) from packages)::decimal, 1) as "fraction" from
 (
-select distinct p.url
-from builds b
-join versions v on b.version_id = v.id
-join packages p on v.package_id = p.id 
-where platform = 'ios'
-and b.status = 'ok'
+    select distinct p.url
+    from builds b
+    join versions v on b.version_id = v.id
+    join packages p on v.package_id = p.id
+    where platform = 'ios'
+    and b.status = 'ok'
 ) t
 union
 select 'tvos' as "platform", count(t.*) as "total", round(count(t.*)*100 / (select count(*) from packages)::decimal, 1) as "fraction" from
 (
-select distinct p.url
-from builds b
-join versions v on b.version_id = v.id
-join packages p on v.package_id = p.id 
-where platform = 'tvos'
-and b.status = 'ok'
+    select distinct p.url
+    from builds b
+    join versions v on b.version_id = v.id
+    join packages p on v.package_id = p.id
+    where platform = 'tvos'
+    and b.status = 'ok'
 ) t
 union
 select 'watchos' as "platform", count(t.*) as "total", round(count(t.*)*100 / (select count(*) from packages)::decimal, 1) as "fraction" from
 (
-select distinct p.url
-from builds b
-join versions v on b.version_id = v.id
-join packages p on v.package_id = p.id 
-where platform = 'watchos'
-and b.status = 'ok'
+    select distinct p.url
+    from builds b
+    join versions v on b.version_id = v.id
+    join packages p on v.package_id = p.id
+    where platform = 'watchos'
+    and b.status = 'ok'
 ) t;
 
+
+-- QUERY-010
 select url from packages
 where url not in (
     select p.url
@@ -108,6 +131,8 @@ where url not in (
 )
 limit 20;
 
+
+-- QUERY-011
 select dependency, count(*) from (
     select p.url, unnest(resolved_dependencies)->>'repositoryURL' as dependency
     from versions v
@@ -120,6 +145,8 @@ group by dependency
 order by count(*) desc
 limit 20;
 
+
+-- QUERY-012
 select '6.0' as swift_version, count(t.*) as "total", round(count(t.*)*100 / (select count(*) from packages)::decimal, 1) as "fraction" from
 (
 select distinct p.id
@@ -160,6 +187,8 @@ where swift_version->>'major' = '5' and swift_version->>'minor' = '8'
 and b.status = 'ok'
 ) t;
 
+
+-- QUERY-013
 select '5.8' as swift_version, count(*) as "total", round(count(*)*100 / (select count(*) from builds where swift_version->>'major' = '5' and swift_version->>'minor' = '8')::decimal, 1) as "fraction"
 from builds b
 where swift_version->>'major' = '5' and swift_version->>'minor' = '8'

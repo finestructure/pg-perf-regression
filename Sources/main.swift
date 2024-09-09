@@ -307,7 +307,7 @@ func runQuery013(_ client: PostgresClient, quiet: Bool = false) async throws {
 
 
 func main() async throws {
-    for port in [6432, 7432] {
+    for port in [6432, 7432, 8432] {
         print("Testing DB on port \(port)")
 
         for _ in (1...10) {

@@ -21,14 +21,6 @@ func withDatabase(port: Int, _ query: @escaping (PostgresClient) async throws ->
 }
 
 
-func runQuery001(_ client: PostgresClient, quiet: Bool = false) async throws {
-    let start = Date()
-    defer { if !quiet { print("\(#function): \(Date().timeIntervalSince(start))") } }
-    try await client.query("DROP DATABASE IF EXISTS snapshot WITH (FORCE)")
-    try await client.query("CREATE DATABASE snapshot TEMPLATE spi_dev")
-}
-
-
 func createSnapshot(port: Int, original: String, snapshot: String, quiet: Bool = false) async throws {
     let start = Date()
     defer { if !quiet { print("Elapsed:", #function, "\(Date().timeIntervalSince(start))") } }

@@ -21,9 +21,9 @@ func withDatabase(port: Int, _ query: @escaping (PostgresClient) async throws ->
 }
 
 
-func createSnapshot(port: Int, original: String, snapshot: String, quiet: Bool = false) async throws {
+func createSnapshot(port: Int, original: String, snapshot: String) async throws {
     let start = Date()
-    defer { if !quiet { print("Elapsed:", #function, "\(Date().timeIntervalSince(start))") } }
+    defer { print("    \(Date().timeIntervalSince(start))")}
     do {
         try await withDatabase(port: port) { client in
             try await client.query(PostgresQuery(unsafeSQL: "DROP DATABASE IF EXISTS \(snapshot) WITH (FORCE)"))
@@ -38,17 +38,8 @@ func createSnapshot(port: Int, original: String, snapshot: String, quiet: Bool =
 
 
 func main() async throws {
-    for port in [6432, 7432] {
-        print("Testing DB on port \(port)")
-
-        for _ in (1...10) {
-            let start = Date()
-            defer { print("    \(Date().timeIntervalSince(start))s")}
-
-            let quiet = true
-            try await createSnapshot(port: port, original: "spi_dev", snapshot: "snapshot", quiet: quiet)
-        }
-    }
+    let port = Int(ProcessInfo.processInfo.arguments[1])!
+    try await createSnapshot(port: port, original: "spi_dev", snapshot: "snapshot")
 }
 
 try await main()

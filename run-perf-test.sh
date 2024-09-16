@@ -3,6 +3,7 @@
 set -eu
 
 PGVERSION=$1
+TEST=$2
 
 docker rm -f spi_test
 docker run --name spi_test \
@@ -24,10 +25,10 @@ fi
 docker ps
 
 echo "Warm-up run..."
-swift test --skip-build --disable-automatic-resolution --filter PerfTest.test1 > /dev/null 2>&1
+swift test --skip-build --disable-automatic-resolution --filter PerfTest.$TEST > /dev/null 2>&1
 
 for _ in {1..10}; do
-    swift test --skip-build --disable-automatic-resolution --filter PerfTest.test1 2>&1 | grep "Elapsed:"
+    swift test --skip-build --disable-automatic-resolution --filter PerfTest.$TEST 2>&1 | grep "Elapsed:"
 done
 
 

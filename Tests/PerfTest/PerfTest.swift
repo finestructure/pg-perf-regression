@@ -59,4 +59,19 @@ class PerfTest: XCTestCase {
         try await recreateDatabase(testDbName)
         try await createSnapshot(original: testDbName, snapshot: snapshotName)
     }
+
+    func test2() async throws {
+        let testDbName = "spi_test"
+        let snapshotName = testDbName + "_snapshot"
+
+        try await recreateDatabase(testDbName)
+        try await createSnapshot(original: testDbName, snapshot: snapshotName)
+    }
+
+    func test3() async throws {
+        let testDbName = "spi_test"
+        let snapshotName = testDbName + "_snapshot"
+
+        try await createSnapshot(original: testDbName, snapshot: snapshotName)
+    }
 }

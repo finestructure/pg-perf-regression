@@ -12,5 +12,8 @@ let package = Package(
         .executableTarget(name: "pg-perf-regression", dependencies: [
             .product(name: "PostgresNIO", package: "postgres-nio")
         ]),
+        .testTarget(name: "PerfTest", dependencies: [
+            .product(name: "PostgresNIO", package: "postgres-nio")
+        ])
     ]
 )

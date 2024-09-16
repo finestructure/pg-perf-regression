@@ -9,8 +9,8 @@ let package = Package(
         .package(url: "https://github.com/vapor/postgres-nio.git", from: "1.22.1")
     ],
     targets: [
-        .executableTarget(name: "pg-perf-regression", dependencies: [
+        .testTarget(name: "PerfTest", dependencies: [
             .product(name: "PostgresNIO", package: "postgres-nio")
-        ]),
+        ])
     ]
 )

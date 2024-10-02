@@ -1,4 +1,5 @@
-import XCTest
+import Testing
+import Foundation
 
 import PostgresNIO
 
@@ -50,8 +51,11 @@ private func createSnapshot(original: String, snapshot: String) async throws {
 }
 
 
-class PerfTest: XCTestCase {
-    func test1() async throws {
+@Suite 
+
+
+struct PerfTest {
+    @Test func test1() async throws {
         let testDbName = "spi_test"
         let snapshotName = testDbName + "_snapshot"
 
@@ -60,7 +64,7 @@ class PerfTest: XCTestCase {
         try await createSnapshot(original: testDbName, snapshot: snapshotName)
     }
 
-    func test2() async throws {
+    @Test func test2() async throws {
         let testDbName = "spi_test"
         let snapshotName = testDbName + "_snapshot"
 
@@ -68,7 +72,7 @@ class PerfTest: XCTestCase {
         try await createSnapshot(original: testDbName, snapshot: snapshotName)
     }
 
-    func test3() async throws {
+    @Test func test3() async throws {
         let testDbName = "spi_test"
         let snapshotName = testDbName + "_snapshot"
 

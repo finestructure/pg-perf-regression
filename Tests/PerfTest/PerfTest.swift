@@ -7,9 +7,8 @@ private func connect(to databaseName: String) async throws -> PostgresClient {
     let host = "localhost"
     let port = 5432
     let username = "spi_test"
-    let password = "xxx"
 
-    let config = PostgresClient.Configuration(host: host, port: port, username: username, password: password, database: databaseName, tls: .disable)
+    let config = PostgresClient.Configuration(host: host, port: port, username: username, password: nil, database: databaseName, tls: .disable)
 
     return .init(configuration: config)
 }

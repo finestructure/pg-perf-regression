@@ -9,7 +9,8 @@ docker rm -f spi_test
 docker run --name spi_test \
     -e POSTGRES_DB=spi_test \
     -e POSTGRES_USER=spi_test \
-    -e POSTGRES_PASSWORD=xxx \
+    -e POSTGRES_HOST_AUTH_METHOD=trust \
+    -e POSTGRES_INITDB_ARGS="--auth-host=trust" \
     -e PGDATA=/pgdata \
     --tmpfs /pgdata:rw,noexec,nosuid,size=1024m \
     -p 5432:5432 \

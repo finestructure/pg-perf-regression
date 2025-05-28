@@ -1,0 +1,97 @@
+spi_test
+bd4762d27acfb4f3dfb3689cb8ff95ad2157477235d2c79af04a154857ce856c
+Building...
+[0/1] Planning build
+Building for debugging...
+[0/3] Write sources
+[1/3] Write swift-version-2F0A5646E1D333AE.txt
+[3/5] Emitting module PerfTest
+[4/5] Compiling PerfTest PerfTest.swift
+[4/6] Write Objects.LinkFileList
+[5/6] Linking pg-perf-regressionPackageTests
+Build complete! (6.24s)
+CONTAINER ID   IMAGE                COMMAND                  CREATED         STATUS         PORTS                                           NAMES
+bd4762d27acf   postgres:13-alpine   "docker-entrypoint.s…"   7 seconds ago   Up 6 seconds   0.0.0.0:5432->5432/tcp, :::5432->5432/tcp       spi_test
+780dc5a75557   postgres:16-alpine   "docker-entrypoint.s…"   46 hours ago    Up 46 hours    0.0.0.0:6432->5432/tcp, [::]:6432->5432/tcp     spi_dev
+5159fe83ada7   postgres:16-alpine   "docker-entrypoint.s…"   6 days ago      Up 6 days      0.0.0.0:46756->5432/tcp, [::]:46756->5432/tcp   spi_test_46756
+d65a8f9f8cd1   postgres:16-alpine   "docker-entrypoint.s…"   6 days ago      Up 6 days      0.0.0.0:55043->5432/tcp, [::]:55043->5432/tcp   spi_test_55043
+9fe87904c0de   postgres:16-alpine   "docker-entrypoint.s…"   6 days ago      Up 6 days      0.0.0.0:38726->5432/tcp, [::]:38726->5432/tcp   spi_test_38726
+0b2eb5e41c98   postgres:16-alpine   "docker-entrypoint.s…"   6 days ago      Up 6 days      0.0.0.0:19623->5432/tcp, [::]:19623->5432/tcp   spi_test_19623
+6201e5662b0a   postgres:16-alpine   "docker-entrypoint.s…"   6 days ago      Up 6 days      0.0.0.0:49643->5432/tcp, [::]:49643->5432/tcp   spi_test_49643
+bee1315234d4   postgres:16-alpine   "docker-entrypoint.s…"   6 days ago      Up 6 days      0.0.0.0:44126->5432/tcp, [::]:44126->5432/tcp   spi_test_44126
+a0e4ea2f6c04   postgres:16-alpine   "docker-entrypoint.s…"   6 days ago      Up 6 days      0.0.0.0:48467->5432/tcp, [::]:48467->5432/tcp   spi_test_48467
+b87bcdb156b7   postgres:16-alpine   "docker-entrypoint.s…"   6 days ago      Up 6 days      0.0.0.0:22409->5432/tcp, [::]:22409->5432/tcp   spi_test_22409
+Warm-up run...
+Elapsed: createSnapshot(original:snapshot:) 9.578943252563477
+Elapsed: createSnapshot(original:snapshot:) 9.790897369384766
+Elapsed: createSnapshot(original:snapshot:) 10.190010070800781
+Elapsed: createSnapshot(original:snapshot:) 9.305953979492188
+Elapsed: createSnapshot(original:snapshot:) 9.982943534851074
+Elapsed: createSnapshot(original:snapshot:) 9.822964668273926
+Elapsed: createSnapshot(original:snapshot:) 9.553074836730957
+Elapsed: createSnapshot(original:snapshot:) 9.129047393798828
+Elapsed: createSnapshot(original:snapshot:) 11.644959449768066
+Elapsed: createSnapshot(original:snapshot:) 9.603023529052734
+spi_test
+aaa327e1375cdeb5773ea6bc95fd7d465da9ba8c396c2aaa26c7cc7175ca5da0
+Building...
+[0/1] Planning build
+Building for debugging...
+[0/2] Write swift-version-2F0A5646E1D333AE.txt
+Build complete! (3.81s)
+CONTAINER ID   IMAGE                COMMAND                  CREATED         STATUS         PORTS                                           NAMES
+aaa327e1375c   postgres:14-alpine   "docker-entrypoint.s…"   4 seconds ago   Up 4 seconds   0.0.0.0:5432->5432/tcp, :::5432->5432/tcp       spi_test
+780dc5a75557   postgres:16-alpine   "docker-entrypoint.s…"   46 hours ago    Up 46 hours    0.0.0.0:6432->5432/tcp, [::]:6432->5432/tcp     spi_dev
+5159fe83ada7   postgres:16-alpine   "docker-entrypoint.s…"   6 days ago      Up 6 days      0.0.0.0:46756->5432/tcp, [::]:46756->5432/tcp   spi_test_46756
+d65a8f9f8cd1   postgres:16-alpine   "docker-entrypoint.s…"   6 days ago      Up 6 days      0.0.0.0:55043->5432/tcp, [::]:55043->5432/tcp   spi_test_55043
+9fe87904c0de   postgres:16-alpine   "docker-entrypoint.s…"   6 days ago      Up 6 days      0.0.0.0:38726->5432/tcp, [::]:38726->5432/tcp   spi_test_38726
+0b2eb5e41c98   postgres:16-alpine   "docker-entrypoint.s…"   6 days ago      Up 6 days      0.0.0.0:19623->5432/tcp, [::]:19623->5432/tcp   spi_test_19623
+6201e5662b0a   postgres:16-alpine   "docker-entrypoint.s…"   6 days ago      Up 6 days      0.0.0.0:49643->5432/tcp, [::]:49643->5432/tcp   spi_test_49643
+bee1315234d4   postgres:16-alpine   "docker-entrypoint.s…"   6 days ago      Up 6 days      0.0.0.0:44126->5432/tcp, [::]:44126->5432/tcp   spi_test_44126
+a0e4ea2f6c04   postgres:16-alpine   "docker-entrypoint.s…"   6 days ago      Up 6 days      0.0.0.0:48467->5432/tcp, [::]:48467->5432/tcp   spi_test_48467
+b87bcdb156b7   postgres:16-alpine   "docker-entrypoint.s…"   6 days ago      Up 6 days      0.0.0.0:22409->5432/tcp, [::]:22409->5432/tcp   spi_test_22409
+Warm-up run...
+Elapsed: createSnapshot(original:snapshot:) 10.743021965026855
+Elapsed: createSnapshot(original:snapshot:) 9.911894798278809
+Elapsed: createSnapshot(original:snapshot:) 11.605024337768555
+Elapsed: createSnapshot(original:snapshot:) 11.662960052490234
+Elapsed: createSnapshot(original:snapshot:) 12.609004974365234
+Elapsed: createSnapshot(original:snapshot:) 10.646939277648926
+Elapsed: createSnapshot(original:snapshot:) 11.831998825073242
+Elapsed: createSnapshot(original:snapshot:) 14.805078506469727
+Elapsed: createSnapshot(original:snapshot:) 12.807011604309082
+Elapsed: createSnapshot(original:snapshot:) 13.308048248291016
+spi_test
+7ad6111022a8b9c3846b06dc3b1837678f543f5b82da7f6055fed7d91cc3c58e
+Building...
+[0/1] Planning build
+Building for debugging...
+[0/3] Write sources
+[1/3] Write swift-version-2F0A5646E1D333AE.txt
+[3/5] Emitting module PerfTest
+[4/5] Compiling PerfTest PerfTest.swift
+[4/6] Write Objects.LinkFileList
+[5/6] Linking pg-perf-regressionPackageTests
+Build complete! (6.30s)
+CONTAINER ID   IMAGE                COMMAND                  CREATED         STATUS         PORTS                                           NAMES
+7ad6111022a8   postgres:15-alpine   "docker-entrypoint.s…"   7 seconds ago   Up 7 seconds   0.0.0.0:5432->5432/tcp, :::5432->5432/tcp       spi_test
+780dc5a75557   postgres:16-alpine   "docker-entrypoint.s…"   46 hours ago    Up 46 hours    0.0.0.0:6432->5432/tcp, [::]:6432->5432/tcp     spi_dev
+5159fe83ada7   postgres:16-alpine   "docker-entrypoint.s…"   6 days ago      Up 6 days      0.0.0.0:46756->5432/tcp, [::]:46756->5432/tcp   spi_test_46756
+d65a8f9f8cd1   postgres:16-alpine   "docker-entrypoint.s…"   6 days ago      Up 6 days      0.0.0.0:55043->5432/tcp, [::]:55043->5432/tcp   spi_test_55043
+9fe87904c0de   postgres:16-alpine   "docker-entrypoint.s…"   6 days ago      Up 6 days      0.0.0.0:38726->5432/tcp, [::]:38726->5432/tcp   spi_test_38726
+0b2eb5e41c98   postgres:16-alpine   "docker-entrypoint.s…"   6 days ago      Up 6 days      0.0.0.0:19623->5432/tcp, [::]:19623->5432/tcp   spi_test_19623
+6201e5662b0a   postgres:16-alpine   "docker-entrypoint.s…"   6 days ago      Up 6 days      0.0.0.0:49643->5432/tcp, [::]:49643->5432/tcp   spi_test_49643
+bee1315234d4   postgres:16-alpine   "docker-entrypoint.s…"   6 days ago      Up 6 days      0.0.0.0:44126->5432/tcp, [::]:44126->5432/tcp   spi_test_44126
+a0e4ea2f6c04   postgres:16-alpine   "docker-entrypoint.s…"   6 days ago      Up 6 days      0.0.0.0:48467->5432/tcp, [::]:48467->5432/tcp   spi_test_48467
+b87bcdb156b7   postgres:16-alpine   "docker-entrypoint.s…"   6 days ago      Up 6 days      0.0.0.0:22409->5432/tcp, [::]:22409->5432/tcp   spi_test_22409
+Warm-up run...
+Elapsed: createSnapshot(original:snapshot:) 12.787103652954102
+Elapsed: createSnapshot(original:snapshot:) 11.465072631835938
+Elapsed: createSnapshot(original:snapshot:) 11.870026588439941
+Elapsed: createSnapshot(original:snapshot:) 10.84601879119873
+Elapsed: createSnapshot(original:snapshot:) 11.084914207458496
+Elapsed: createSnapshot(original:snapshot:) 12.546062469482422
+Elapsed: createSnapshot(original:snapshot:) 11.14201545715332
+Elapsed: createSnapshot(original:snapshot:) 10.383009910583496
+Elapsed: createSnapshot(original:snapshot:) 11.960029602050781
+Elapsed: createSnapshot(original:snapshot:) 12.011051177978516

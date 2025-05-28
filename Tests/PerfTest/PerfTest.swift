@@ -30,7 +30,7 @@ private func withDatabase(_ databaseName: String, _ query: @escaping (PostgresCl
 private func recreateDatabase(_ databaseName: String) async throws {
     try await withDatabase("postgres") {  // Connect to `postgres` db in order to reset the test db
         try await $0.query(PostgresQuery(unsafeSQL: "DROP DATABASE IF EXISTS \(databaseName) WITH (FORCE)"))
-        try await $0.query(PostgresQuery(unsafeSQL: "CREATE DATABASE \(databaseName)"))
+        try await $0.query(PostgresQuery(unsafeSQL: "CREATE DATABASE \(databaseName) STRATEGY = file_copy"))
     }
 }
 
@@ -41,7 +41,7 @@ private func createSnapshot(original: String, snapshot: String) async throws {
     do {
         try await withDatabase("postgres") { client in
             try await client.query(PostgresQuery(unsafeSQL: "DROP DATABASE IF EXISTS \(snapshot) WITH (FORCE)"))
-            try await client.query(PostgresQuery(unsafeSQL: "CREATE DATABASE \(snapshot) TEMPLATE \(original)"))
+            try await client.query(PostgresQuery(unsafeSQL: "CREATE DATABASE \(snapshot) TEMPLATE \(original) STRATEGY = file_copy"))
         }
     } catch {
         print("Create snapshot failed with error: ", String(reflecting: error))
